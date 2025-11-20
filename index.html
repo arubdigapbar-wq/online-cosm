@@ -1,10 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
-    <title>Online Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic Shop - Теріге күтім</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello from develop!</h1>
+    <!-- Хедер с профилем -->
+    <header class="header">
+        <div class="container">
+            <div class="profile-section">
+                <h1 class="shop-name">Cosmetic Beauty</h1>
+                <div class="profile-info">
+                    <span class="balance">Баланс: <span id="balance">5 000 ₸</span></span>
+                    <div class="avatar-container">
+                        <img src="images/avatars/default-avatar.png" alt="Аватар" class="avatar" id="userAvatar">
+                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Навигация по категориям -->
+    <nav class="categories">
+        <div class="container">
+            <button class="category-btn active" data-category="dry">Құрғақ теріге</button>
+            <button class="category-btn" data-category="oily">Майлы теріге</button>
+            <button class="category-btn" data-category="combination">Аралас теріге</button>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main">
+        <div class="container">
+            <!-- Продукты для сухой кожи -->
+            <section class="products-section active" id="dry">
+                <h2>Құрғақ теріге арналған препараттар</h2>
+                <div class="products-grid">
+                    <div class="product-card" data-id="1">
+                        <div class="product-image">
+                            <img src="images/products/moisturizing-cream.jpg" alt="Ылғалдандыратын крем">
+                        </div>
+                        <h3 class="product-name">Қарқынды ылғалдандыратын крем</h3>
+                        <p class="product-price">4 500 ₸</p>
+                    </div>
+                    
+                    <div class="product-card" data-id="2">
+                        <div class="product-image">
+                            <img src="images/products/nourishing-serum.jpg" alt="Қоректік серум">
+                        </div>
+                        <h3 class="product-name">Қоректік серум</h3>
+                        <p class="product-price">6 200 ₸</p>
+                    </div>
+                    
+                    <div class="product-card" data-id="3">
+                        <div class="product-image">
+                            <img src="images/products/gentle-cleanser.jpg" alt="Жұмсақ тазалағыш">
+                        </div>
+                        <h3 class="product-name">Жұмсақ тазалағыш</h3>
+                        <p class="product-price">3 800 ₸</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Продукты для жирной кожи -->
+            <section class="products-section" id="oily">
+                <h2>Майлы теріге арналған препараттар</h2>
+                <div class="products-grid">
+                    <div class="product-card" data-id="4">
+                        <div class="product-image">
+                            <img src="images/products/matt-cream.jpg" alt="Матты крем">
+                        </div>
+                        <h3 class="product-name">Матты крем-гель</h3>
+                        <p class="product-price">4 800 ₸</p>
+                    </div>
+                    
+                    <div class="product-card" data-id="5">
+                        <div class="product-image">
+                            <img src="images/products/pore-serum.jpg" alt">Кеуек серумы">
+                        </div>
+                        <h3 class="product-name">Кеуектерді тарылтатын серум</h3>
+                        <p class="product-price">5 500 ₸</p>
+                    </div>
+                    
+                    <div class="product-card" data-id="6">
+                        <div class="product-image">
+                            <img src="images/products/clay-mask.jpg" alt="Сазы маскасы">
+                        </div>
+                        <h3 class="product-name">Тазалайтын сазы маскасы</h3>
+                        <p class="product-price">3 200 ₸</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Продукты для комби кожи -->
+            <section class="products-section" id="combination">
+                <h2>Аралас теріге арналған препараттар</h2>
+                <div class="products-grid">
+                    <div class="product-card" data-id="7">
+                        <div class="product-image">
+                            <img src="images/products/balancing-toner.jpg" alt="Теңгергіш тоник">
+                        </div>
+                        <h3 class="product-name">Теңгергіш тоник</h3>
+                        <p class="product-price">3 500 ₸</p>
+                    </div>
+                    
+                    <div class="product-card" data-id="8">
+                        <div class="product-image">
+                            <img src="images/products/hydra-gel.jpg" alt="Ылғалдандыратын гель">
+                        </div>
+                        <h3 class="product-name">Ылғалдандыратын гель</h3>
+                        <p class="product-price">4 200 ₸</p>
+                    </div>
+                    
+                    <div class="product-card" data-id="9">
+                        <div class="product-image">
+                            <img src="images/products/complex-care.jpg" alt="Кешенді күтім">
+                        </div>
+                        <h3 class="product-name">Кешенді күтім</h3>
+                        <p class="product-price">7 800 ₸</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Модальное окно продукта -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-product">
+                <div class="modal-image">
+                    <img id="modalImg" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p class="modal-price" id="modalPrice"></p>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <button class="buy-btn">Қазір сатып алу</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер с разработчиками -->
+    <footer class="footer">
+        <div class="container">
+            <div class="developers">
+                <div class="developer-card">
+                    <h3>Әбдіғапбар Ару</h3>
+                    <p>Frontend әзірлеушісі</p>
+                    <p>HTML & CSS әзірлеу</p>
+                </div>
+                <div class="developer-card">
+                    <h3>Елубай Еркежан</h3>
+                    <p>JavaScript әзірлеушісі</p>
+                    <p>Функционалдық және анимациялар</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
