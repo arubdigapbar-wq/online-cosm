@@ -28,6 +28,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .shop-name {
@@ -57,9 +58,35 @@ body {
     border-radius: 50%;
     border: 3px solid white;
     transition: transform 0.3s ease;
+    object-fit: cover;
 }
 
 .avatar:hover {
+    transform: scale(1.1);
+}
+
+/* Кнопки тем */
+.theme-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.theme-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.theme-btn.light { background: #f8f8f8; color: #333; }
+.theme-btn.dark { background: #333; color: white; }
+.theme-btn.pink { background: #ff69b4; color: white; }
+.theme-btn.blue { background: #6495ed; color: white; }
+
+.theme-btn:hover {
     transform: scale(1.1);
 }
 
@@ -331,6 +358,11 @@ body {
         text-align: center;
     }
     
+    .theme-buttons {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
     .products-grid {
         grid-template-columns: 1fr;
     }
@@ -358,6 +390,18 @@ body.light-theme {
 
 body.dark-theme {
     background-color: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-theme .product-card,
+body.dark-theme .categories,
+body.dark-theme .modal-content {
+    background-color: #2d2d2d;
+    color: #fff;
+}
+
+body.dark-theme .product-name,
+body.dark-theme .products-section h2 {
     color: #fff;
 }
 
